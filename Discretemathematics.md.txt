@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int *pi;
+int staticSize;
+int i;
+int large;
+
+void Max(int num) {
+
+	large = pi[0];
+
+	for (i = 1; i < num; i++) {
+		if (pi[i] > large)
+			large = pi[i];
+	}
+	return large;
+
+}
+
+int main(void)
+{
+	printf("Enter number : ");
+	scanf("%d", &staticSize);
+
+	pi = (int *)malloc(sizeof(int)*staticSize);
+
+	printf("Enter the number that matches the required number.\n");
+
+	for (i = 0; i < staticSize; i++) {
+		scanf("%d", &pi[i]);
+	}
+	printf("\n");
+
+	Max(staticSize);
+
+	printf("Maximum : %d\n", large);
+	free(pi);
+
+}
